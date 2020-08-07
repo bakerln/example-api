@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.com.ln</groupId>
+    <artifactId>example-api</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <parent>
+        <artifactId>ln-common</artifactId>
+        <groupId>cn.com.ln</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <modules>
+        <module>example-api-web</module>
+        <module>example-api-service</module>
+        <module>example-api-pojo</module>
+        <module>example-api-rpc</module>
+    </modules>
+
+    <properties>
+        <common-framework.version>1.0.0-SNAPSHOT</common-framework.version>
+        <example-api.version>1.0-SNAPSHOT</example-api.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- 定义框架版本 -->
+            <dependency>
+                <groupId>cn.com.ln</groupId>
+                <artifactId>common-framework</artifactId>
+                <version>${common-framework.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- 定义本域下模块版本 （web可以不定义，因为不被引用）-->
+            <dependency>
+                <groupId>cn.com.ln</groupId>
+                <artifactId>example-api-web</artifactId>
+                <version>${example-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.com.ln</groupId>
+                <artifactId>example-api-rpc</artifactId>
+                <version>${example-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.com.ln</groupId>
+                <artifactId>example-api-service</artifactId>
+                <version>${example-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.com.ln</groupId>
+                <artifactId>example-api-pojo</artifactId>
+                <version>${example-api.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
