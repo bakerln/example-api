@@ -5,7 +5,7 @@
     <parent>
         <artifactId>example-api</artifactId>
         <groupId>cn.com.ln</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -13,6 +13,7 @@
 
 
     <dependencies>
+        <!--POJO框架依赖-->
         <dependency>
             <groupId>cn.com.ln</groupId>
             <artifactId>common-framework-pojo</artifactId>

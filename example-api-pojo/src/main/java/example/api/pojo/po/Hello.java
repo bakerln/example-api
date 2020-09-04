@@ -2,6 +2,7 @@ package example.api.pojo.po;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -12,5 +13,7 @@ import java.util.Date;
 public class Hello {
     private String name;
     private Integer age;
+    private Double len;
+    private BigDecimal money;
     private Date date;
 }

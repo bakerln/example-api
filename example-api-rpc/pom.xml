@@ -5,17 +5,19 @@
     <parent>
         <artifactId>example-api</artifactId>
         <groupId>cn.com.ln</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>example-api-rpc</artifactId>
 
     <dependencies>
+        <!--RPC框架依赖-->
         <dependency>
             <groupId>cn.com.ln</groupId>
             <artifactId>common-framework-rpc</artifactId>
         </dependency>
+        <!--module版本-->
         <dependency>
             <groupId>cn.com.ln</groupId>
             <artifactId>example-api-pojo</artifactId>

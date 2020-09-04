@@ -1,10 +1,7 @@
 package example.api.web.controller;
 
 import example.api.pojo.po.Hello;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
@@ -16,28 +13,50 @@ import java.util.Date;
 @RequestMapping("/example")
 public class ExampleController {
 
+    /**
+     * Get 示例
+     * @param hello 对象 （body json）
+     * @return 对象
+     */
     @GetMapping("/object")
-    public Object GetObject(){
-        Hello a = new Hello();
+    public Object GetObject(@RequestBody Hello hello){
+        Hello a = hello;
         a.setName("linan");
-        return a;
-    }
-    @PostMapping("/object")
-    public Object PostObject(){
-        Hello a = new Hello();
-        a.setName("linan");
-        a.setAge(2);
-        a.setDate(new Date());
-        return a;
+        return hello;
     }
 
+    /**
+     * Get 示例
+     * @param hello
+     * @return String
+     */
     @GetMapping("/string")
-    public String GetString(){
+    public String GetString(Hello hello){
         String a = "{\"name\":\"kong\"}";
         return a;
     }
+
+    /**
+     * POST 示例
+     * @param hello
+     * @return
+     */
+    @PostMapping("/object")
+    public Object PostObject(Hello hello){
+//        Hello a = hello;
+//        a.setName("linan");
+//        a.setAge(2);
+        return hello;
+    }
+
+
+    /**
+     * POST 示例
+     * @param hello
+     * @return
+     */
     @PostMapping("/string")
-    public String PostString(){
+    public String PostString(Hello hello){
         String a = "{\"name\":\"kong\"}";
         return a;
     }
