@@ -18,5 +18,9 @@
             <groupId>cn.com.ln</groupId>
             <artifactId>common-framework-pojo</artifactId>
         </dependency>
+        <dependency>
+            <groupId>cn.com.ln</groupId>
+            <artifactId>common-framework-util</artifactId>
+        </dependency>
     </dependencies>
 </project>

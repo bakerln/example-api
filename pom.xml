@@ -25,7 +25,7 @@
     <properties>
         <!--框架版本-->
         <common-framework.version>1.0.0-SNAPSHOT</common-framework.version>
-        <!--module版本-->
+        <!--本域版本-->
         <example-api.version>1.0.0-SNAPSHOT</example-api.version>
     </properties>
 
@@ -40,7 +40,7 @@
                 <scope>import</scope>
             </dependency>
 
-            <!-- 定义本域下模块版本 （web可以不定义，因为不被引用）-->
+            <!-- 定义本域版本 （web可以不定义，因为不被引用）-->
             <dependency>
                 <groupId>cn.com.ln</groupId>
                 <artifactId>example-api-web</artifactId>

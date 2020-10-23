@@ -1,6 +1,8 @@
 package example.api.web.controller;
 
+import common.framework.util.jsonutil.JsonUtil;
 import example.api.pojo.po.Hello;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -41,14 +43,20 @@ public class ExampleController {
      * @param hello
      * @return
      */
-    @PostMapping("/object")
-    public Object PostObject(Hello hello){
-//        Hello a = hello;
-//        a.setName("linan");
-//        a.setAge(2);
+    @PostMapping("/object1")
+    public Object PostObject1(Hello hello){
         return hello;
     }
 
+    /**
+     * POST 示例
+     * @param hello
+     * @return
+     */
+    @PostMapping("/object2")
+    public Object PostObject2(@RequestBody Hello hello){
+        return hello;
+    }
 
     /**
      * POST 示例

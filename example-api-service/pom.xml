@@ -18,14 +18,15 @@
             <groupId>cn.com.ln</groupId>
             <artifactId>common-framework-service</artifactId>
         </dependency>
-        <!--module版本-->
+        <dependency>
+            <groupId>cn.com.ln</groupId>
+            <artifactId>common-framework-util</artifactId>
+        </dependency>
+
+        <!--本域依赖-->
         <dependency>
             <groupId>cn.com.ln</groupId>
             <artifactId>example-api-rpc</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>cn.com.ln</groupId>
-            <artifactId>example-api-pojo</artifactId>
         </dependency>
     </dependencies>
 </project>

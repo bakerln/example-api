@@ -19,10 +19,11 @@
             <artifactId>common-framework-web</artifactId>
         </dependency>
 
-        <!--module版本-->
+        <!--本域依赖-->
         <dependency>
             <groupId>cn.com.ln</groupId>
             <artifactId>example-api-service</artifactId>
         </dependency>
+
     </dependencies>
 </project>
