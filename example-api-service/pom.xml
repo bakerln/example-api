@@ -2,30 +2,30 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>example-api</artifactId>
-        <groupId>cn.com.ln</groupId>
-        <version>1.0.0-SNAPSHOT</version>
-    </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>example-api-service</artifactId>
+    <parent>
+        <artifactId>example-api</artifactId>
+        <groupId>cn.com.example</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
 
+    <artifactId>example-api-service</artifactId>
 
     <dependencies>
         <!--SERVICE框架依赖-->
         <dependency>
-            <groupId>cn.com.ln</groupId>
+            <groupId>cn.bread.framework</groupId>
             <artifactId>common-framework-service</artifactId>
         </dependency>
         <dependency>
-            <groupId>cn.com.ln</groupId>
+            <groupId>cn.bread.framework</groupId>
             <artifactId>common-framework-util</artifactId>
         </dependency>
 
         <!--本域依赖-->
         <dependency>
-            <groupId>cn.com.ln</groupId>
+            <groupId>cn.com.example</groupId>
             <artifactId>example-api-rpc</artifactId>
         </dependency>
     </dependencies>

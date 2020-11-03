@@ -1,71 +1,85 @@
 package example.api.web.controller;
 
-import common.framework.util.jsonutil.JsonUtil;
-import example.api.pojo.po.Hello;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.Date;
+import common.framework.util.voutil.ResultWrapper;
+import example.api.pojo.po.ExampleObject;
+import io.swagger.annotations.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
+ * <p>Description: WEB请求示例</p>
+ *
  * @author linan
- * @date 2020-07-27 14:54
+ * @date 2020-10-29
  */
-@RestController
+@Api(value = "/example",tags = "WEB请求示例",  description="包括post请求、get请求等操作")
 @RequestMapping("/example")
-public class ExampleController {
+public interface ExampleController {
 
-    /**
-     * Get 示例
-     * @param hello 对象 （body json）
-     * @return 对象
-     */
-    @GetMapping("/object")
-    public Object GetObject(@RequestBody Hello hello){
-        Hello a = hello;
-        a.setName("linan");
-        return hello;
-    }
+    @ApiOperation(
+            value = "POST方法请求调用示例",
+            notes = "请求参数为对象json串，返回ResultWrapper对象",
+            response = ExampleObject.class
+    )
+    @ApiResponses(value = {
+            @ApiResponse(code = 900,message = "009XX 业务相关错误",response = ResultWrapper.class),
+            @ApiResponse(code = 500, message = "005XX 服务器相关错误",response = ResultWrapper.class)}
+    )
+    @PostMapping("/postObjectGetObject")
+    public ResultWrapper getObjectByPost(@ApiParam(value = "示例对象",required = true) ExampleObject object);
 
-    /**
-     * Get 示例
-     * @param hello
-     * @return String
-     */
-    @GetMapping("/string")
-    public String GetString(Hello hello){
-        String a = "{\"name\":\"kong\"}";
-        return a;
-    }
 
-    /**
-     * POST 示例
-     * @param hello
-     * @return
-     */
-    @PostMapping("/object1")
-    public Object PostObject1(Hello hello){
-        return hello;
-    }
+    @ApiOperation(
+            value = "POST方法请求调用示例",
+            notes = "无请求参数，返回对象ResultWrapper对象，包含List",
+            response = ExampleObject.class,
+            responseContainer = "List"
+    )
+    @ApiResponses(value = {
+            @ApiResponse(code = 900,message = "009XX 业务相关错误",response = ResultWrapper.class),
+            @ApiResponse(code = 500, message = "005XX 服务器相关错误",response = ResultWrapper.class)}
+    )
+    @PostMapping("/postObjectGetList")
+    public ResultWrapper getObjectListByPost();
 
-    /**
-     * POST 示例
-     * @param hello
-     * @return
-     */
-    @PostMapping("/object2")
-    public Object PostObject2(@RequestBody Hello hello){
-        return hello;
-    }
 
-    /**
-     * POST 示例
-     * @param hello
-     * @return
-     */
-    @PostMapping("/string")
-    public String PostString(Hello hello){
-        String a = "{\"name\":\"kong\"}";
-        return a;
-    }
+    @ApiOperation(
+            value = "POST方法请求调用示例",
+            notes = "无请求参数，返回对象为String",
+            response = String.class
+    )
+    @ApiResponses(value = {
+            @ApiResponse(code = 900,message = "009XX 业务相关错误",response = ResultWrapper.class),
+            @ApiResponse(code = 500, message = "005XX 服务器相关错误",response = ResultWrapper.class)}
+    )
+    @PostMapping("/postObjectGetString")
+    public String getStingByPost();
+
+
+    @ApiOperation(
+            value = "GET方法请求调用示例",
+            notes = "",
+            response = ResultWrapper.class
+          )
+    @ApiResponses(value = {
+            @ApiResponse(code = 900,message = "009XX 业务相关错误",response = ResultWrapper.class),
+            @ApiResponse(code = 500, message = "005XX 服务器相关错误",response = ResultWrapper.class)}
+    )
+    @GetMapping("/getObjectGetString")
+    public ResultWrapper getObjectByGET(@ApiParam(value = "示例对象",required = true) ExampleObject exampleObject);
+
+
+    @ApiOperation(
+            value = "GET方法请求调用示例",
+            notes = "",
+            response = String.class
+    )
+    @ApiResponses(value = {
+            @ApiResponse(code = 900,message = "009XX 业务相关错误",response = ResultWrapper.class),
+            @ApiResponse(code = 500, message = "005XX 服务器相关错误",response = ResultWrapper.class)}
+    )
+    @GetMapping("/getStringGetString")
+    public String getStringByGET(@ApiParam(value = "示例对象",required = true) ExampleObject exampleObject);
+
 }
