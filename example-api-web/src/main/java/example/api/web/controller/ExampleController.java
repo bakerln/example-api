@@ -5,6 +5,7 @@ import example.api.pojo.po.ExampleObject;
 import io.swagger.annotations.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -27,7 +28,7 @@ public interface ExampleController {
             @ApiResponse(code = 500, message = "005XX 服务器相关错误",response = ResultWrapper.class)}
     )
     @PostMapping("/postObjectGetObject")
-    public ResultWrapper getObjectByPost(@ApiParam(value = "示例对象",required = true) ExampleObject object);
+    public ResultWrapper getObjectByPost(@ApiParam(value = "示例对象",required = true) @RequestBody ExampleObject object);
 
 
     @ApiOperation(
@@ -67,7 +68,7 @@ public interface ExampleController {
             @ApiResponse(code = 500, message = "005XX 服务器相关错误",response = ResultWrapper.class)}
     )
     @GetMapping("/getObjectGetString")
-    public ResultWrapper getObjectByGET(@ApiParam(value = "示例对象",required = true) ExampleObject exampleObject);
+    public ResultWrapper getObjectByGET(@ApiParam(value = "示例对象",required = true)@RequestBody ExampleObject exampleObject);
 
 
     @ApiOperation(
@@ -80,6 +81,6 @@ public interface ExampleController {
             @ApiResponse(code = 500, message = "005XX 服务器相关错误",response = ResultWrapper.class)}
     )
     @GetMapping("/getStringGetString")
-    public String getStringByGET(@ApiParam(value = "示例对象",required = true) ExampleObject exampleObject);
+    public String getStringByGET(@ApiParam(value = "示例对象",required = true)@RequestBody ExampleObject exampleObject);
 
 }

@@ -6,7 +6,6 @@ import example.api.pojo.po.ExampleObject;
 import example.api.service.ExampleService;
 import example.api.web.controller.ExampleController;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -22,7 +21,7 @@ public class ExampleControllerImpl  implements ExampleController{
     private ExampleService exampleService;
 
     @Override
-    public ResultWrapper getObjectByPost(@RequestBody ExampleObject exampleObject){
+    public ResultWrapper getObjectByPost(ExampleObject exampleObject){
         return ResultWrapperUtil.success(exampleObject);
     }
 

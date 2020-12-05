@@ -39,8 +39,7 @@ public class SwaggerConfig {
                 .paths(
                         Predicates.and(ant("/**"),
                         Predicates.not(ant("/error")),
-                        Predicates.not(ant("/management/**")),
-                        Predicates.not(ant("/management*"))))
+                        Predicates.not(ant("/actuator/**"))))
                 .build();
     }
 
