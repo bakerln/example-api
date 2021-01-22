@@ -3,7 +3,10 @@ server:
   port: 9082
 spring:
   application:
-    name:  examples-springboot
+    name:  EXAMPLES-SPRINGBOOT
+  cache:
+     timeout: 2000
+     capacity: 2
 eureka:
   client:
     service-url:

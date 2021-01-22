@@ -15,12 +15,12 @@
     <dependencies>
         <!--WEB框架依赖-->
         <dependency>
-            <groupId>cn.bread.framework</groupId>
-            <artifactId>common-framework-web</artifactId>
+            <groupId>com.github.bakerln.framework</groupId>
+            <artifactId>common-framework-cloud</artifactId>
         </dependency>
         <dependency>
-            <groupId>cn.bread.framework</groupId>
-            <artifactId>common-framework-cloud</artifactId>
+            <groupId>com.github.bakerln.framework</groupId>
+            <artifactId>common-framework-web</artifactId>
         </dependency>
 
         <!--本域依赖-->

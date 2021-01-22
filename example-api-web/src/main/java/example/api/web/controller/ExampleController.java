@@ -1,6 +1,6 @@
 package example.api.web.controller;
 
-import common.framework.util.voutil.ResultWrapper;
+import common.framework.wrapper.ResultWrapper;
 import example.api.pojo.po.ExampleObject;
 import io.swagger.annotations.*;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -82,5 +82,18 @@ public interface ExampleController {
     )
     @GetMapping("/getStringGetString")
     public String getStringByGET(@ApiParam(value = "示例对象",required = true)@RequestBody ExampleObject exampleObject);
+
+    @ApiOperation(
+            value = "RPC方法请求调用示例",
+            notes = "请求参数为对象json串，返回ResultWrapper对象",
+            response = ExampleObject.class
+    )
+    @ApiResponses(value = {
+            @ApiResponse(code = 900,message = "009XX 业务相关错误",response = ResultWrapper.class),
+            @ApiResponse(code = 500, message = "005XX 服务器相关错误",response = ResultWrapper.class)}
+    )
+    @PostMapping("/testPRC")
+    public ResultWrapper testRPC(@ApiParam(value = "示例对象",required = true) @RequestBody ExampleObject object);
+
 
 }

@@ -1,7 +1,7 @@
 package example.api.web.controller.implement;
 
-import common.framework.util.voutil.ResultWrapper;
-import common.framework.util.voutil.ResultWrapperUtil;
+import common.framework.wrapper.ResultWrapper;
+import common.framework.wrapper.ResultWrapperUtil;
 import example.api.pojo.po.ExampleObject;
 import example.api.service.ExampleService;
 import example.api.web.controller.ExampleController;
@@ -58,6 +58,11 @@ public class ExampleControllerImpl  implements ExampleController{
     public String getStringByGET(ExampleObject exampleObject){
         String string = "Example Hello";
         return string;
+    }
+
+    @Override
+    public ResultWrapper testRPC(ExampleObject object) {
+        return exampleService.testRPC(object);
     }
 
 }

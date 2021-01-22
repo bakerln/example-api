@@ -1,6 +1,9 @@
 package example.api.service;
 
+import common.framework.wrapper.ResultWrapper;
 import example.api.pojo.po.ExampleObject;
+import example.api.rpc.ExampleCustomerRPC;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -16,6 +19,9 @@ import java.util.List;
 @Service
 public class ExampleService {
 
+    @Autowired(required = false)
+    private ExampleCustomerRPC exampleCustomerRPC;
+
     public List getList(){
         ArrayList<ExampleObject> list = new ArrayList();
         ExampleObject a = new ExampleObject();
@@ -29,4 +35,7 @@ public class ExampleService {
     }
 
 
+    public ResultWrapper testRPC(ExampleObject object) {
+        return exampleCustomerRPC.createFood();
+    }
 }
