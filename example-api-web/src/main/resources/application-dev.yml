@@ -6,13 +6,6 @@ spring:
     name:  EXAMPLES-SPRINGBOOT
     description: 微服务消费用例
     version: 1.0.0-SNAPSHOT
-  cache:
-     timeout: 2000
-     capacity: 2
-  redis:
-    ports: 6379
-    hosturl: localhost
-    expire: 60
 
 eureka:
    instance:
@@ -44,3 +37,16 @@ info:
      version: ${spring.application.version}
      ip: ${spring.cloud.client.ip-address}
      port: ${server.port}
+
+service:
+  rpc:
+    filter: true
+  cache:
+    enable: true
+    timeout: 2000
+    capacity: 2
+  redis:
+    enable: false
+    ports: 6379
+    hosturl: localhost
+    expire: 60

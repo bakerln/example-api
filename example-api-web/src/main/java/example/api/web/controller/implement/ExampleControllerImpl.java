@@ -1,5 +1,6 @@
 package example.api.web.controller.implement;
 
+import common.framework.cache.TimeCache;
 import common.framework.wrapper.ResultWrapper;
 import common.framework.wrapper.ResultWrapperUtil;
 import example.api.pojo.po.ExampleObject;
@@ -19,6 +20,9 @@ public class ExampleControllerImpl  implements ExampleController{
 
     @Autowired(required = false)
     private ExampleService exampleService;
+
+    @Autowired
+    private TimeCache timeCache;
 
     @Override
     public ResultWrapper getObjectByPost(ExampleObject exampleObject){
@@ -46,6 +50,7 @@ public class ExampleControllerImpl  implements ExampleController{
     @Override
     public String getStingByPost(){
         String string = "Example Hello";
+        timeCache.put("a","b");
         return string;
     }
 
